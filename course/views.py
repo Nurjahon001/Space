@@ -40,7 +40,7 @@ class CourseDetailUpdateDelateAPIView(APIView):
         course.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    def put(selfself,request,pk):
+    def put(self,request,pk):
         course = Course.objects.get(pk=pk)
         serializer=CourseSerializer(instance=course,data=request.data)
         if serializer.is_valid():
@@ -48,7 +48,7 @@ class CourseDetailUpdateDelateAPIView(APIView):
             return Response(status=status.HTTP_200_OK)
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-    def patch(selfself,request,pk):
+    def patch(self,request,pk):
         course = Course.objects.get(pk=pk)
         serializer=CourseSerializer(instance=course,data=request.data,partial=True)
         if serializer.is_valid():
